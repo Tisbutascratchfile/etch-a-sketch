@@ -93,3 +93,75 @@ footer {
   height: 50px;
   outline: 1px solid black;
 }
+
+.toggle-outline {
+  border-radius: 15px;
+  height: 25px;
+}
+
+.toggle {
+  background-color: rgb(255, 255, 255);
+  outline: 1px solid black;
+  box-shadow: 0px 2px 5px black;
+  border-radius: 25px;
+  width: 25px;
+  height: 25px;
+}
+
+.on {
+  animation: on 500ms ease-in-out forwards 0s;
+}
+.onB {
+  animation: onB 500ms ease-in-out forwards 0s;
+}
+
+.off {
+  animation: off 500ms ease-in-out forwards 0s;
+}
+.offB {
+  animation: offB 500ms ease-in-out forwards 0s;
+}
+
+@keyframes on {
+  from {
+    background-color: #d0d0d0;
+  }
+  50% {
+    background-color: #d0d0d0;
+  }
+  to {
+    background-color: #53f18f;
+  }
+}
+
+@keyframes onB {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(30px);
+  }
+}
+
+@keyframes off {
+  from {
+    background-color: #53f18f;
+  }
+  50% {
+    background-color: #53f18f;
+  }
+  to {
+    background-color: #d0d0d0;
+  }
+}
+
+@keyframes offB {
+  from {
+    transform: translateX(30px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}

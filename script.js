@@ -91,3 +91,16 @@ function gridSizefn() {
 }
 
 gridSizefn();
+
+const toggleOut = document.querySelector(".toggle-outline");
+const toggle = document.querySelector(".toggle");
+
+toggle.addEventListener("click", (e) => {
+  toggle.classList.toggle("onB");
+  toggleOut.classList.toggle("on");
+  toggle.classList.toggle("offB");
+  toggleOut.classList.toggle("off");
+  for (let i = 0; i < childCells.length; i++) {
+    childCells[i].classList.toggle("cell");
+  }
+});
