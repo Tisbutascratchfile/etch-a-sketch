@@ -67,3 +67,29 @@ footer {
 .cell {
   outline: 1px solid black;
 }
+
+.toolbar * {
+  height: 50px;
+  width: 200px;
+}
+
+.row-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.display-size-l {
+  width: 120px;
+  height: 50px;
+  outline: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-size-r {
+  width: 50px;
+  height: 50px;
+  outline: 1px solid black;
+}
