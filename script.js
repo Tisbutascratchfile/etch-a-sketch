@@ -16,6 +16,11 @@ function genCanvas(dimension) {
   }
 }
 
+function currColor() {
+  color = colorPalette.value;
+  return color;
+}
+
 function randRGB() {
   const random = () => Math.floor(Math.random() * 256);
   let color = `rgb(${random()}, ${random()}, ${random()})`;
@@ -45,6 +50,7 @@ function tabulaRasa() {
   }
 }
 
+const colorPalette = document.querySelector(".display-color");
 const rand = document.querySelector(".rand-color");
 const gray = document.querySelector(".gray-color");
 const del = document.querySelector(".del");
@@ -54,11 +60,15 @@ const gridSize = document.querySelector(".grid-size");
 
 function changeColor(e) {
   childCells.forEach((element) => {
-    if (e.target == rand)
+    if (e.target == colorPalette) {
+      element.addEventListener("mouseover", (e) => {
+        element.style.backgroundColor = currColor();
+      });
+    } else if (e.target == rand) {
       element.addEventListener("mouseover", (e) => {
         element.style.backgroundColor = randRGB();
       });
-    else if (e.target == gray) {
+    } else if (e.target == gray) {
       element.addEventListener("mouseover", (e) => {
         element.style.backgroundColor = grayScale();
       });
@@ -72,6 +82,8 @@ function changeColor(e) {
   });
 }
 
+colorPalette.addEventListener("change", changeColor);
+colorPalette.addEventListener("click", changeColor);
 rand.addEventListener("click", changeColor);
 gray.addEventListener("click", changeColor);
 del.addEventListener("click", changeColor);
@@ -80,6 +92,7 @@ reset.addEventListener("click", tabulaRasa);
 function gridSizefn() {
   window.addEventListener("load", () => {
     dimension = gridSize.value = "16";
+    colorPalette.value = "#ffffff";
     genCanvas(dimension);
   });
 
